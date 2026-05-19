@@ -11,7 +11,7 @@ const CarCard = ({ car }) => {
     return (
         <div className='space-y-4 rounded-lg overflow-hidden shadow-2xl'>
             <div className="relative aspect-video">
-                <Image src={image} alt='Car Image' fill className=''></Image>
+                <Image src={image} alt='Car Image' fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover'></Image>
                 <div className="flex justify-between relative top-3 mx-3 z-10">
                     <p className='bg-lime-500 text-white px-3 rounded-sm'>{carType}</p>
                 <p className={`${availability == 'Available'? 'bg-green-500': 'bg-amber-600'} text-white px-3 rounded-sm`}>{availability}</p>
