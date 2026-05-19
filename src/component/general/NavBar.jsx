@@ -50,8 +50,8 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className="space-x-2">
-                    <button className="btn bg-blue-600 text-white">Sign In</button>
-                    <button className="btn bg-blue-600 text-white">Sign Up</button>
+                    <Link href={'/signin'}><button className="btn bg-blue-600 text-white">Sign In</button></Link>
+                    <Link href={'/signup'}><button className="btn bg-blue-600 text-white">Sign Up</button></Link>
                 </div>
                 </div>
                 
