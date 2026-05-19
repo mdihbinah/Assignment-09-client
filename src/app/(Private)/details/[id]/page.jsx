@@ -8,7 +8,7 @@ const DetailsPage = async({params}) => {
     
     return (
         <div className='my-5 '>
-            <h1 className='w-[90%] mx-auto text-3xl'>Details Pages</h1>
+            <h1 className='w-[90%] mx-auto text-3xl font-bold'>Details Pages</h1>
             <div className="w-[90%] mx-auto">
                 {
                     <DetailsCard car={car}></DetailsCard>
