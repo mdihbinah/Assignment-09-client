@@ -3,8 +3,54 @@ import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
 
-const Register = () => {
-  
+const SignUP = () => {
+  const router = useRouter()
+  const handleRegister = async(e) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(formData.entries())
+    // console.log('Form submitted with:', userData);
+    const {data, error} = await authClient.signUp.email({
+      name: userData.name,
+      image: userData.photolink,
+      email: userData.email,
+      password: userData.password,
+      callbackURL: '/login'
+    })
+    // console.log('Sign up response:', {data, error});
+    
+    if(error){
+        toast.error('Error sign up:' + error.message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+    if(data){
+      router.push('/login')
+      toast.success('sign up successful! Check your Email.', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+    }
+  }
+
+  const handleGoogleSignUp = async() => {
+    const data = await authClient.signIn.social({
+      provider: 'google',
+    })
+  }
     return (
         <div>
             <div className="hero bg-base-200  min-h-screen">
@@ -15,7 +61,7 @@ const Register = () => {
     <div className="card bg-base-100 min-w-100 max-w-sm shrink-0 shadow-2xl">
       <div  className="card-body">
 
-        <form >
+        <form onSubmit={handleRegister} >
           <fieldset className="fieldset">
           <label className="label font-bold">Name</label>
           <input type="text" name='name' className="input" placeholder="Name" />
@@ -32,7 +78,7 @@ const Register = () => {
         </fieldset>
         </form>
         <p className='divider'>Or</p>
-        <div  className="flex items-center gap-5 btn  "><FcGoogle></FcGoogle> Sign in with Google</div>
+        <div onClick={handleGoogleSignUp} className="flex items-center gap-5 btn  "><FcGoogle></FcGoogle> Sign in with Google</div>
       </div>
     </div>
   </div>
@@ -41,4 +87,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignUP;

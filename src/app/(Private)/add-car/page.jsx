@@ -3,7 +3,22 @@ import { FieldError, Input, Select, Label, ListBox, TextField, Button, TextArea 
 
 
 const AddCar = () => {
-    const onSubmit = () => {
+    const onSubmit = async(e) => {
+      e.preventDefault()
+      const formData = new FormData(e.currentTarget)
+      const carInfo = Object.fromEntries(formData.entries())
+      console.log(carInfo)
+      const res = await fetch(`http://localhost:5000/cars`,{
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(carInfo)
+
+      })
+      const data = await res.json()
+      console.log(data);
+      return data
 
     }
     return (
@@ -30,11 +45,11 @@ const AddCar = () => {
               </TextField>
 
               {/* Category - Updated Select Component */}
-              <div>
+              <div className=''>
                 <Select
                   name="carType"
                   isRequired
-                  className="w-full"
+                  className="w-1/2 md:w-full"
                   placeholder="Select Car Type"
                 >
                   <Label>Car Type</Label>
