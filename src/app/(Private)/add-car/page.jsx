@@ -28,9 +28,9 @@ const AddCar = () => {
             className="p-10 space-y-8 w-3xl"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 shadow-2xl rounded-xl px-4 py-5">
-              {/* Destination Name */}
+              {/* Car Name */}
               <div className="md:col-span-2">
-                <TextField name="destinationName" isRequired>
+                <TextField name="carName" isRequired>
                   <Label>Car Name</Label>
                   <Input placeholder="Bali Paradise" className="rounded-2xl" />
                   <FieldError />
@@ -38,7 +38,7 @@ const AddCar = () => {
               </div>
 
               {/* Brand */}
-              <TextField name="country" isRequired>
+              <TextField name="brand" isRequired>
                 <Label>Car Brand</Label>
                 <Input placeholder="Mercedes-Benz" className="rounded-2xl" />
                 <FieldError />
@@ -59,27 +59,23 @@ const AddCar = () => {
                   </Select.Trigger>
                   <Select.Popover>
                     <ListBox>
-                      <ListBox.Item id="Beach" textValue="Beach">
-                        Luxury SUV
-                        <ListBox.ItemIndicator />
-                      </ListBox.Item>
-                      <ListBox.Item id="Mountain" textValue="Mountain">
+                      <ListBox.Item id="Luxury" textValue="Luxury">
                         Luxury
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="City" textValue="City">
+                      <ListBox.Item id="SUV" textValue="SUV">
                         SUV
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Adventure" textValue="Adventure">
+                      <ListBox.Item id="Electric" textValue="Electric">
                         Electric
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Cultural" textValue="Cultural">
+                      <ListBox.Item id="Sports" textValue="Sports">
                         Sports
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
-                      <ListBox.Item id="Luxury" textValue="Luxury">
+                      <ListBox.Item id="Sedan" textValue="Sedan">
                         Sedan
                         <ListBox.ItemIndicator />
                       </ListBox.Item>
@@ -88,8 +84,8 @@ const AddCar = () => {
                 </Select>
               </div>
 
-              {/* Price */}
-              <TextField name="price" type="number" isRequired>
+              {/* dailyRentPrice */}
+              <TextField name="dailyRentPrice" type="dailyRentPrice" isRequired>
                 <Label>Rent Price (USD)</Label>
                 <Input
                   type="number"
@@ -162,7 +158,7 @@ const AddCar = () => {
 
               {/* Image URL*/}
               <div className="md:col-span-2">
-                <TextField name="imageUrl" isRequired>
+                <TextField name="image" isRequired>
                   <Label>Image URL</Label>
                   <Input
                     type="url"

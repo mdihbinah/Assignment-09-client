@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdEventSeat } from "react-icons/md";
 import { RiOilLine } from "react-icons/ri";
 import BookNow from "./BookNow";
+import { FaCarOn } from "react-icons/fa6";
 
 
 
@@ -22,13 +23,18 @@ const DetailsCard = ({ car }) => {
                         <p className='bg-lime-500 text-white px-3 rounded-sm'>{carType}</p>
                         <p className={`${availability == 'Available' ? 'bg-green-500' : 'bg-amber-600'} text-white px-3 rounded-sm`}>{availability}</p>
                     </div>
-                    <p className='flex items-center gap-1 font-bold '><FaStar className='text-yellow-500 '></FaStar>{rating}</p>
-                    <p><span className='text-blue-600 font-bold'>${dailyRentPrice}</span>/day</p>
 
-                    <div className="opacity-40 border-t-2 my-2">
+
+                    <div className=" flex justify-between border-b-2 border-gray-400/70 pb-2 my-2">
+                        <p className='flex items-center gap-1 font-bold '><FaStar className='text-yellow-500 '></FaStar>{rating}</p>
+                        <p><span className='text-blue-600 text-lg font-bold'>${dailyRentPrice}</span>/day</p>
                     </div>
 
                     <div className="space-y-1">
+                        <div className='flex justify-between items-center gap-1 '>
+                            <p className="flex justify-between items-center gap-1"><FaCarOn />Brand</p>
+                            {brand}
+                        </div>
                         <div className='flex justify-between items-center gap-1'>
                             <p className="flex justify-between items-center gap-1"><MdEventSeat />Seat Capacity</p>
                             <p>{seatCapacity} Seats</p>
@@ -41,10 +47,7 @@ const DetailsCard = ({ car }) => {
                             <p className="flex justify-between items-center gap-1"><RiOilLine />Fuel Type</p>
                             {fuelType}
                         </div>
-                        <div className='flex justify-between items-center gap-1 '>
-                            <p className="flex justify-between items-center gap-1"><GiGearStickPattern></GiGearStickPattern>Transmission</p>
-                            {transmission}
-                        </div>
+
                     </div>
 
                 </div>
@@ -53,7 +56,7 @@ const DetailsCard = ({ car }) => {
                     <p className="text-md opacity-70">{description}</p>
                 </div>
             </div>
-            
+
             <div className="col-span-4 w-full h-full ">
                 <BookNow car={car}></BookNow>
             </div>
