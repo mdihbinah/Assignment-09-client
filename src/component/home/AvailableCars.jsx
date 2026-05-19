@@ -1,8 +1,17 @@
-import { cars } from "../../../public/carData";
+// import { cars } from "../../../public/carData";
+import { ObjectId } from "mongodb";
 import CarCard from "./CarCard";
 
 
-const AvailableCars = () => {
+const AvailableCars = async() => {
+    const res = await fetch('http://localhost:5000/cars', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+    const cars = await res.json()
     const availableCars = cars.filter(ele => ele.availability == 'Available')
     return (
         <div className="w-[90%] mx-auto my-5">
@@ -10,7 +19,7 @@ const AvailableCars = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
                     availableCars.slice(0,6).map(car => {
-                        return <CarCard key={car.id} car={car}></CarCard>
+                        return <CarCard key={new ObjectId(car.id)} car={car}></CarCard>
                     })
                 }
             </div>

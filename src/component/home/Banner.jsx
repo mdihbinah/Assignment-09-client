@@ -6,7 +6,7 @@ import Link from "next/link";
 const Banner = () => {
     return (
         <div className=" h-[90vh] relative aspect-video">
-            <Image src={'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7'} alt="Cars Image" fill></Image>
+            <Image src={'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7'} alt="Cars Image" fill className="object-cover"></Image>
 
             <div className="w-[90%] mx-auto relative h-full  z-10 flex flex-col justify-center items-start gap-5 ">
                 <h1 className="text-xl md:text-2xl lg:text-4xl tracking-wider font-extrabold text-white ">Drive Your Journey <br /> <span className="text-blue-500">With Confidence</span></h1>

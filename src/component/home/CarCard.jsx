@@ -11,7 +11,7 @@ const CarCard = ({ car }) => {
     return (
         <div className='space-y-4 rounded-lg overflow-hidden shadow-2xl'>
             <div className="relative aspect-video">
-                <Image src={image} alt='Car Image' fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover'></Image>
+                <Image src={image} alt='Car Image' fill loading="eager" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className='object-cover'></Image>
                 <div className="flex justify-between relative top-3 mx-3 z-10">
                     <p className='bg-lime-500 text-white px-3 rounded-sm'>{carType}</p>
                 <p className={`${availability == 'Available'? 'bg-green-500': 'bg-amber-600'} text-white px-3 rounded-sm`}>{availability}</p>
@@ -28,7 +28,7 @@ const CarCard = ({ car }) => {
                     <p className='flex justify-center items-center gap-1 '><GiGearStickPattern></GiGearStickPattern>{transmission}</p>
                     <p className='flex justify-center items-center gap-1 font-bold '><FaStar className='text-yellow-500 '></FaStar>{rating}</p>
                 </div>
-                <Link href={`/details/${car.id}`} className=''><button className='bg-blue-600 hover:bg-blue-800 text-white w-full text-center rounded-md p-1 duration-200'>View Details</button></Link>
+                <Link href={`/details/${car._id}`} className=''><button className='bg-blue-600 hover:bg-blue-800 text-white w-full text-center rounded-md p-1 duration-200'>View Details</button></Link>
             </div>
 
         </div>

@@ -1,10 +1,18 @@
-import React from 'react';
-import { cars } from '../../../../../public/carData';
+// import { cars } from '../../../../../public/carData';
 import DetailsCard from '@/component/DetailsCard';
 
 const DetailsPage = async({params}) => {
     const {id} = await params
-    const car = cars.find(ele => ele.id == id)
+    // console.log(id);
+    const res = await fetch('http://localhost:5000/cars', {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+    const cars = await res.json()
+    const car = cars.find(ele => ele._id == id)
+    // console.log(car);
     
     return (
         <div className='my-5 '>

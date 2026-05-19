@@ -13,7 +13,7 @@ const ExploreCarsPages = async() => {
     })
 
     const cars = await res.json()
-    console.log(cars);
+    // console.log(cars);
 
 
     return (

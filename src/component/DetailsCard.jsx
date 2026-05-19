@@ -14,7 +14,7 @@ const DetailsCard = ({ car }) => {
         <div className="grid grid-cols-4 md:grid-cols-11 lg:grid-cols-16 gap-5 ">
             <div className="col-span-4 md:col-span-7 lg:col-span-12 grid grid-cols-5 shadow-lg p-4 rounded-xl gap-4">
                 <div className=" relative aspect-video col-span-5 lg:col-span-3">
-                    <Image src={image} alt="Cars Image" fill className="rounded-lg"></Image>
+                    <Image src={image} alt="Cars Image" fill className="rounded-lg object-cover"></Image>
                 </div>
                 <div className="col-span-5 md:col-span-3 lg:col-span-2 flex flex-col justify-center space-y-2">
                     <p className="text-xl font-bold tracking-wider">{carName}</p>
@@ -55,7 +55,7 @@ const DetailsCard = ({ car }) => {
             </div>
             
             <div className="col-span-4 w-full h-full ">
-                <BookNow  car={car}></BookNow>
+                <BookNow car={car}></BookNow>
             </div>
         </div>
     );
