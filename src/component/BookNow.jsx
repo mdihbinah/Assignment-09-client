@@ -69,7 +69,7 @@ const BookNow = ({ car }) => {
                 </div>
 
                 <div className="">
-                    <TextField name="returnDate" type="number" isRequired>
+                    <TextField name="rentDays" type="number" isRequired>
                         <Label>Rent Days</Label>
                         <Input type="number" placeholder='3/4 days' className="rounded-2xl" />
                         <FieldError />

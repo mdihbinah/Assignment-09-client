@@ -16,9 +16,9 @@ const MyBookingsPage = async() => {
 
     
     return (
-        <div>
-            My Booking
-            <div className="">
+        <div className='w-[90%] mx-auto my-8'>
+            <h1 className='text-2xl font-bold mb-5'>My Booking</h1>
+            <div className=" space-y-5">
                 {
                     bookingsInfo.map(booking => {
                         return <BookingCard key={booking._id} booking={booking}></BookingCard>
