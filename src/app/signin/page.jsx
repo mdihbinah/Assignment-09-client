@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
@@ -64,9 +65,9 @@ theme: "light",
         <form onSubmit={handleLogin}>
           <fieldset className="fieldset">
           <label className="label font-bold">Email</label>
-          <input type="email" name='email' className="input" placeholder="Email" />
+          <input type="email" name='email' className="input" required placeholder="Email" />
           <label className="label font-bold">Password</label>
-          <input type="password" name='password' className="input" placeholder="Password" />
+          <input type="password" name='password' className="input" required placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn bg-blue-600 hover:bg-blue-500 duration-200 text-white mt-4">Login</button>
         </fieldset>

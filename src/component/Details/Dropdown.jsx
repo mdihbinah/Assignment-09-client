@@ -6,10 +6,9 @@ import { IoIosArrowDown } from "react-icons/io";
 import { SiNushell } from "react-icons/si";
 
 
-const DropdownCard = ({setTotalPrice, car }) => {
+const DropdownCard = ({isDriverAdded, setIsDriverAdded, setTotalPrice, car }) => {
 
     const [selected, setSelected] = useState(null);
-    const [isDriverAdded, setIsDriverAdded] = useState(false)
     const handlePrice = () => {
         if (!isDriverAdded) {
             setTotalPrice(ele => ele + 10)
@@ -33,7 +32,7 @@ const DropdownCard = ({setTotalPrice, car }) => {
                     selectionMode="single"
                     onSelectionChange={setSelected}
                 >
-                    <Dropdown.Section>
+                    <Dropdown.Section >
                         {/* <Header>Select</Header> */}
                         <Dropdown.Item onPress={() => {handlePrice()}} id="yes" textValue="Yes">
                             <Dropdown.ItemIndicator />

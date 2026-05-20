@@ -1,26 +1,29 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
 
 const SignUP = () => {
   const router = useRouter()
-  const handleRegister = async(e) => {
+
+  const handleSignUp = async(e) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries())
-    // console.log('Form submitted with:', userData);
+    console.log('Form submitted with:', userData);
+
     const {data, error} = await authClient.signUp.email({
       name: userData.name,
       image: userData.photolink,
       email: userData.email,
       password: userData.password,
-      callbackURL: '/login'
+      callbackURL: '/signin'
     })
-    // console.log('Sign up response:', {data, error});
+    console.log('Sign up response:', {data, error});
     
     if(error){
-        toast.error('Error sign up:' + error.message, {
+        toast.error('Error Sign Up:' + error.message, {
         position: "top-center",
         autoClose: 2000,
         hideProgressBar: false,
@@ -32,17 +35,7 @@ const SignUP = () => {
         });
     }
     if(data){
-      router.push('/login')
-      toast.success('sign up successful! Check your Email.', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
+      router.push('/signin')
     }
   }
 
@@ -61,7 +54,7 @@ const SignUP = () => {
     <div className="card bg-base-100 min-w-100 max-w-sm shrink-0 shadow-2xl">
       <div  className="card-body">
 
-        <form onSubmit={handleRegister} >
+        <form onSubmit={handleSignUp} >
           <fieldset className="fieldset">
           <label className="label font-bold">Name</label>
           <input type="text" name='name' className="input" placeholder="Name" />

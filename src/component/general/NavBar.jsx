@@ -1,15 +1,32 @@
+'use client'
 import { CarFront } from "lucide-react";
 import NavLink from "./NavLink";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 const links = <>
-<NavLink path={'/'} data={'Home'}></NavLink>
-<NavLink path={'/explore-cars'} data={'Explore Cars'}></NavLink>
-<NavLink path={'/add-car'} data={'Add Car'}></NavLink>
-<NavLink path={'/my-bookings'} data={'My Bookings'}></NavLink>
+    <NavLink path={'/'} data={'Home'}></NavLink>
+    <NavLink path={'/explore-cars'} data={'Explore Cars'}></NavLink>
+    <NavLink path={'/add-car'} data={'Add Car'}></NavLink>
+    <NavLink path={'/my-bookings'} data={'My Bookings'}></NavLink>
 </>
 
 const NavBar = () => {
+    const { data: session, isPending } = authClient.useSession()
+    const router = useRouter()
+    // console.log(session, isPending);
+    const user = session?.user
+
+    const handleSignOut = async() => {
+        await authClient.signOut({
+            fetchOptions: {
+                onSuccess: () => {
+                    router.push("/signin")
+                },
+            },
+        });
+    }
     return (
         <div className="">
             <div className="navbar bg-base-100 shadow-sm">
@@ -20,7 +37,7 @@ const NavBar = () => {
                         </div>
                         {<ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content z-90 bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content z-90 bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
                             {links}
                         </ul>}
                     </div>
@@ -32,29 +49,32 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-3">
-                    <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    {
+                        user ? <div className="dropdown dropdown-end mr-3 z-20">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 h-10  rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src={user?.image} />
+                                </div>
                             </div>
+                            <ul
+                                tabIndex="-1"
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                <NavLink path={'/add-car'} data={'Add Car'}></NavLink>
+                                <NavLink path={'/my-bookings'} data={'My Bookings'}></NavLink>
+                                <NavLink path={'/my-added-cars'} data={'My Added Cars'}></NavLink>
+                                <button onClick={handleSignOut} className="btn bg-blue-600 text-white">Sign Out</button>
+                            </ul>
                         </div>
-                        <ul
-                            tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li>
-                                <a className="justify-between"> Profile</a>
-                            </li>
-                            <li><a>Logout</a></li>
-                        </ul>
-                    </div>
-                    <div className="space-x-2">
-                    <Link href={'/signin'}><button className="btn bg-blue-600 text-white">Sign In</button></Link>
-                    <Link href={'/signup'}><button className="btn bg-blue-600 text-white">Sign Up</button></Link>
+                            :
+                            <div className="space-x-2">
+                                <Link href={'/signin'}><button className="btn bg-blue-600 text-white">Sign In</button></Link>
+                                <Link href={'/signup'}><button className="btn bg-blue-600 text-white">Sign Up</button></Link>
+                            </div>
+                    }
                 </div>
-                </div>
-                
+
             </div>
         </div>
     );
