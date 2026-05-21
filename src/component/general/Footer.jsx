@@ -25,8 +25,8 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Company</h6>
                     <Link href={'/'} className="link link-hover">About us</Link>
-                    <Link href={'/'} className="link link-hover">Contact</Link>
-                    <Link href={'/'} className="link link-hover">Jobs</Link>
+                    <Link href={'/'} className="link link-hover">+88001403345532</Link>
+                    <Link href={'/'} className="link link-hover">drivefleet@gmail.com</Link>
                 </nav>
 
                 <nav>

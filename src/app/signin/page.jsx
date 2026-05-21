@@ -68,11 +68,11 @@ theme: "light",
           <input type="email" name='email' className="input" required placeholder="Email" />
           <label className="label font-bold">Password</label>
           <input type="password" name='password' className="input" required placeholder="Password" />
-          <div><a className="link link-hover">Forgot password?</a></div>
+          {/* <div><a className="link link-hover">Forgot password?</a></div> */}
           <button className="btn bg-blue-600 hover:bg-blue-500 duration-200 text-white mt-4">Login</button>
         </fieldset>
         </form>
-        <p>Don't have any account? <Link href={'/register'}  className='text-blue-600 font-bold link-hover' >Register</Link></p>
+        <p className='text-center'>Don't have any account? <Link href={'/signup'}  className='text-blue-600 font-bold link-hover' >Sign Up</Link></p>
         <p className='divider'>Or</p>
         <div  onClick={handleGoogleLogIn} className="flex items-center gap-5 btn"><FcGoogle /> Sign in with Google</div>
       </div>

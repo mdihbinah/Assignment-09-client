@@ -1,3 +1,4 @@
+import EmptyData from '@/component/general/Empty';
 import BookingCard from '@/component/My-Booking/BookingCard';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
@@ -20,9 +21,9 @@ const MyBookingsPage = async() => {
             <h1 className='text-2xl font-bold mb-5'>My Booking</h1>
             <div className=" space-y-5">
                 {
-                    bookingsInfo.map(booking => {
+                    bookingsInfo.length ? bookingsInfo.map(booking => {
                         return <BookingCard key={booking._id} booking={booking}></BookingCard>
-                    })
+                    }) : <EmptyData/>
                 }
             </div>
         </div>

@@ -1,5 +1,7 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
+import { Description, FieldError, Input, Label, TextField } from '@heroui/react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
@@ -65,11 +67,38 @@ const SignUP = () => {
           <label className="label font-bold">Email</label>
           <input type="email" name='email' className="input" placeholder="Email" />
 
-          <label className="label font-bold">Password</label>
-          <input type="password" name='password' className="input" placeholder="Password" />
+          {/* <label className="label font-bold">Password</label>
+          <input type="password" name='password' className="input" placeholder="Password" /> */}
+
+
+          <TextField
+            isRequired
+            minLength={8}
+            name="password"
+            type="password"
+            validate={(value) => {
+              if (value.length < 8) {
+                return "Password must be at least 8 characters";
+              }
+              if (!/[A-Z]/.test(value)) {
+                return "Password must contain at least one uppercase letter";
+              }
+              if (!/[0-9]/.test(value)) {
+                return "Password must contain at least one number";
+              }
+              return null;
+            }}
+          >
+            <Label>Password</Label>
+            <Input placeholder="Enter your password" />
+            <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
+            <FieldError />
+          </TextField>
+
           <button type='submit' className="btn bg-blue-600 hover:bg-blue-500 text-white duration-200 mt-4">Sign Up</button>
         </fieldset>
         </form>
+        <p className='text-center'>Do you have any account? <Link href={'/signin'}  className='text-blue-600 font-bold link-hover' >Sign In</Link></p>
         <p className='divider'>Or</p>
         <div onClick={handleGoogleSignUp} className="flex items-center gap-5 btn  "><FcGoogle></FcGoogle> Sign in with Google</div>
       </div>

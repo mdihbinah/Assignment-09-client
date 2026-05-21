@@ -1,3 +1,4 @@
+import EmptyData from "@/component/general/Empty";
 import CarCard from "@/component/home/CarCard";
 import MyCarCard from "@/component/MyCar/MyCarCard";
 import { auth } from "@/lib/auth";
@@ -18,9 +19,9 @@ const MyAddedCars = async() => {
             <h2 className="text-xl font-bold mb-5">My Added Cars</h2>
             <div className="flex flex-col justify-center items-center gap-8">
                 {
-                    cars.map(car => {
+                    cars.length ? cars.map(car => {
                         return <MyCarCard key={car._id} car={car}></MyCarCard>
-                    })
+                    }) : <EmptyData/>
                 }
             </div>
         </div>
