@@ -19,7 +19,6 @@ const AddCar = () => {
         'content-type': 'application/json'
       },
       body: JSON.stringify(carInfo)
-
     })
     const data = await res.json()
     console.log(data);
@@ -187,16 +186,13 @@ const AddCar = () => {
           </div>
         </div>
 
-        {/* Buttons */}
 
         <Button
           type="submit"
           variant="outline"
-          //   isLoading={isPending}
           className="rounded-full w-full bg-blue-600 text-white"
         >
-          {/* {isPending ? "Adding Package..." : "Add Travel Package"} */}
-          Add Destination
+          Add
         </Button>
       </form>
     </div>

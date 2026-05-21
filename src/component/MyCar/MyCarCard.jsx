@@ -1,9 +1,11 @@
+import { Button } from "@heroui/react";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { FaCarOn } from "react-icons/fa6";
 import { GiGearStickPattern } from "react-icons/gi";
 import { MdEventSeat } from "react-icons/md";
 import { RiOilLine } from "react-icons/ri";
+import EditCarData from "./EditCarData";
 
 
 
@@ -49,12 +51,13 @@ const MyCarCard = ({ car }) => {
                 </div>
 
             </div>
-            <div className="">
-                <div className="">
+            <div className="flex flex-col justify-center items-center gap-4">
+                <div className="flex items-center gap-3">
                     <h2>Update Your Car Data</h2>
+                    <EditCarData car={car} ></EditCarData>
                     
                 </div>
-                <div className="">
+                <div className="flex items-center gap-3">
                     <h2>Delete Your Car Data</h2>
                     
                 </div>
