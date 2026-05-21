@@ -16,7 +16,7 @@ const AddCar = () => {
 
     const { data: tokenData } = await authClient.token()
         console.log('ttttttttt', tokenData);
-    const res = await fetch(`http://localhost:5000/my-added-cars`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-added-cars`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

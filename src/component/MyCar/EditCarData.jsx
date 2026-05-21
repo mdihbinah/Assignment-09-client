@@ -17,7 +17,7 @@ const EditCarData = ({ car }) => {
 
         const { data: tokenData } = await authClient.token()
         console.log('ttttttttt', tokenData);
-        const res = await fetch(`http://localhost:5000/my-added-cars/${car._id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-added-cars/${car._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

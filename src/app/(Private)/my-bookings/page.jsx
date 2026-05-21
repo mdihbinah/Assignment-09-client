@@ -14,9 +14,10 @@ const MyBookingsPage = async() => {
         headers: await headers()
     })
     const userId = session.session?.userId
-    console.log(userId);
-    const res = await fetch(`http://localhost:5000/bookings/${userId}`, {
+    console.log('user', userId);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/bookings/${userId}`, {
         headers: {
+            'content-type': 'application/json',
              authorization: `Bearer ${token}`
         }
     })

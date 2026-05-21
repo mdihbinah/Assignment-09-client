@@ -15,7 +15,7 @@ const MyAddedCars = async() => {
             headers: await headers()
         })
         const userId = session?.session?.userId
-    const res = await fetch(`http://localhost:5000/my-added-cars/${userId}`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/my-added-cars/${userId}`,{
         headers:{
              authorization: `Bearer ${token}`
         }

@@ -9,7 +9,7 @@ const ExploreCarsPages = () => {
     const [cars, setCars] = useState([]);
     useEffect(() => {
         const fetchCars = async () => {
-            const res = await fetch('http://localhost:5000/cars');
+            const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/cars`);
             const data = await res.json();
             setCars(data);
         }

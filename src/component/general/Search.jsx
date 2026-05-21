@@ -12,26 +12,13 @@ const SearchCard = ({setCars}) => {
         const type = form.get("carType");
         console.log(searched);
         
-        const res = await fetch(`http://localhost:5000/car?search=${searched}&type=${type}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/car?search=${searched}&type=${type}`);
 
             const data = await res.json();
 
             setCars(data);
         
     }
-
-    // const onType = async(e) => {
-    //     e.preventDefault()
-    //     const form = new FormData(e.currentTarget);
-    //     const type = form.get("carType");
-    //     console.log(type, typeof type);
-
-    //     const res = await fetch(`http://localhost:5000/car?type=${type}`);
-    //         const data = await res.json();
-
-
-    //         setCars(data);
-    // }
 
     return (
         <div className='my-5 md:flex justify-around gap-5'>
