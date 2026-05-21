@@ -60,7 +60,7 @@ theme: "light",
     <div className="text-center">
       <h1 className="text-4xl font-bold">Login now!</h1>
     </div>
-    <div className="card bg-base-100 min-w-100 max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 min-w-70 md:min-w-90 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
         <form onSubmit={handleLogin}>
           <fieldset className="fieldset">

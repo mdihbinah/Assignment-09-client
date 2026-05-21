@@ -1,13 +1,22 @@
 // import { cars } from "../../../public/carData";
 import { ObjectId } from "mongodb";
 import CarCard from "./CarCard";
+// import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+
 
 
 const AvailableCars = async() => {
+    // const {token} = await auth.api.getToken({
+    //     headers: await headers()
+    // })
+    // console.log(token);
+
     const res = await fetch('http://localhost:5000/cars', {
         method: 'GET',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            // authorization: `Bearer ${token}`
         }
     })
 

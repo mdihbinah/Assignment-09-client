@@ -68,9 +68,9 @@ const NavBar = () => {
                             </ul>
                         </div>
                             :
-                            <div className="space-x-2">
+                            <div className="space-x-2 flex gap-.5">
                                 <Link href={'/signin'}><button className="btn bg-blue-600 text-white">Sign In</button></Link>
-                                <Link href={'/signup'}><button className="btn bg-blue-600 text-white">Sign Up</button></Link>
+                                <Link href={'/signup'}><button className=" hidden md:flex btn bg-blue-600 text-white">Sign Up</button></Link>
                             </div>
                     }
                 </div>

@@ -12,11 +12,15 @@ const AddCar = () => {
     const formData = new FormData(e.currentTarget)
     const carInfo = Object.fromEntries(formData.entries())
     carInfo.userId = userId
-    console.log(carInfo)
+    // console.log(carInfo)
+
+    const { data: tokenData } = await authClient.token()
+        console.log('ttttttttt', tokenData);
     const res = await fetch(`http://localhost:5000/my-added-cars`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        authorization: `Bearer ${tokenData?.token}`
       },
       body: JSON.stringify(carInfo)
     })
@@ -29,7 +33,7 @@ const AddCar = () => {
     <div className='p-5 max-w-7xl mx-auto'>
       <h1 className='text-2xl font-bold text-center'>Add Car</h1>
       <form onSubmit={onSubmit}
-        className="p-10 space-y-8 w-3xl"
+        className="p-10 space-y-8 md:w-xl lg:w-3xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 shadow-2xl rounded-xl px-4 py-5">
           {/* Car Name */}
@@ -53,7 +57,7 @@ const AddCar = () => {
             <Select
               name="carType"
               isRequired
-              className="w-1/2 md:w-full"
+              className="w-3/4 tex-md md:w-full"
               placeholder="Select Car Type"
             >
               <Label>Car Type</Label>

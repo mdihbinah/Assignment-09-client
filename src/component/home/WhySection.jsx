@@ -9,7 +9,7 @@ const WhySection = () => {
         <div className="w-[90%]  mx-auto my-5">
             <h1 className="text-2xl text-center font-bold mb-3">Why Choose DriveFleet?</h1>
             <div className="flex flex-col md:flex-row  gap-3">
-                <div className=" flex items-center gap-3">
+                <div className=" flex md:flex-col lg:flex-row items-center gap-3">
                     <p className="text-5xl font-bold text-blue-600"><VscWorkspaceTrusted /></p>
                     <div className="">
                         <h3 className="text-lg tracking-wide font-bold">Trusted & Secure</h3>
@@ -17,7 +17,7 @@ const WhySection = () => {
                     </div>
                 </div>
                 <span className="divider md:divider-horizontal"></span>
-                <div className=" flex items-center gap-3">
+                <div className=" flex md:flex-col lg:flex-row items-center gap-3">
                     <p className="text-5xl font-bold text-blue-600"><IoCar /></p>
                     <div className="">
                         <h3 className="text-lg tracking-wide font-bold">Wide Selection</h3>
@@ -25,7 +25,7 @@ const WhySection = () => {
                     </div>
                 </div>
                 <span className="divider md:divider-horizontal"></span>
-                <div className=" flex items-center gap-3">
+                <div className=" flex md:flex-col lg:flex-row items-center gap-3">
                     <p className="text-5xl font-bold text-blue-600"><IoMdPricetags /></p>
                     <div className="">
                         <h3 className="text-lg tracking-wide font-bold">Best Price</h3>
@@ -33,7 +33,7 @@ const WhySection = () => {
                     </div>
                 </div>
                 <span className="divider md:divider-horizontal"></span>
-                <div className=" flex items-center gap-3">
+                <div className=" flex md:flex-col lg:flex-row items-center gap-3">
                     <p className="text-5xl font-bold text-blue-600"><BiSupport /></p>
                     <div className="">
                         <h3 className="text-lg tracking-wide font-bold">24/7 Support</h3>

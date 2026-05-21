@@ -7,11 +7,19 @@ import { headers } from "next/headers";
 
 
 const MyAddedCars = async() => {
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
     const session = await auth.api.getSession({
             headers: await headers()
         })
         const userId = session?.session?.userId
-    const res = await fetch(`http://localhost:5000/my-added-cars/${userId}`)
+    const res = await fetch(`http://localhost:5000/my-added-cars/${userId}`,{
+        headers:{
+             authorization: `Bearer ${token}`
+        }
+    })
     const cars = await res.json()
 
     return (

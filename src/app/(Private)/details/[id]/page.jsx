@@ -1,18 +1,25 @@
 // import { cars } from '../../../../../public/carData';
 import DetailsCard from '@/component/DetailsCard';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const DetailsPage = async({params}) => {
     const {id} = await params
+    console.log(id);
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
+
     // console.log(id);
-    const res = await fetch('http://localhost:5000/cars', {
+    const res = await fetch(`http://localhost:5000/cars/${id}`, {
         method: 'GET',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            authorization: `Bearer ${token}`
         }
     })
-    const cars = await res.json()
-    const car = cars.find(ele => ele._id == id)
-    // console.log(car);
+    const car = await res.json()
     
     return (
         <div className='my-5 '>

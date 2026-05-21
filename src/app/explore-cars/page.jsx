@@ -10,9 +10,7 @@ const ExploreCarsPages = () => {
     useEffect(() => {
         const fetchCars = async () => {
             const res = await fetch('http://localhost:5000/cars');
-
             const data = await res.json();
-
             setCars(data);
         }
         fetchCars()
@@ -38,6 +36,7 @@ const ExploreCarsPages = () => {
                         />
                     ))
                 }
+
 
             </div>
             <div className="flex justify-center items-center">

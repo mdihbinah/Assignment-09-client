@@ -14,7 +14,7 @@ const MyCarCard = ({ car }) => {
     const { carName, brand, carType, dailyRentPrice, fuelType, image, seatCapacity, availability, pickupLocation, rating, transmission } = car
 
     return (
-        <div className="grid md:grid-cols-5 gap-5 border rounded-lg drop-shadow-xl px-4 py-3">
+        <div className="grid md:grid-cols-5 gap-5 border rounded-lg shadow-xl px-4 py-3">
             <div className="col-span-2 w-full h-full relative aspect-video">
                 <Image src={car?.image} alt="car Image" fill className="object-cover"></Image>
             </div>

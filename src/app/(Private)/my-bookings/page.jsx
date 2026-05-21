@@ -6,12 +6,20 @@ import Image from 'next/image';
 import React from 'react';
 
 const MyBookingsPage = async() => {
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
     const session = await auth.api.getSession({
         headers: await headers()
     })
     const userId = session.session?.userId
     console.log(userId);
-    const res = await fetch(`http://localhost:5000/bookings/${userId}`)
+    const res = await fetch(`http://localhost:5000/bookings/${userId}`, {
+        headers: {
+             authorization: `Bearer ${token}`
+        }
+    })
     const bookingsInfo = await res.json()
     console.log(bookingsInfo);
 

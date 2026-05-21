@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from "@/lib/auth-client";
 import { Button, FieldError, Input, Label, ListBox, Select, Modal, Surface, TextField, TextArea } from "@heroui/react";
 import { BsEnvelope } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
@@ -12,10 +13,15 @@ const EditCarData = ({ car }) => {
         const carInfo = Object.fromEntries(formData.entries())
         carInfo.userId = car.userId
         console.log(carInfo)
+
+
+        const { data: tokenData } = await authClient.token()
+        console.log('ttttttttt', tokenData);
         const res = await fetch(`http://localhost:5000/my-added-cars/${car._id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(carInfo)
         })
