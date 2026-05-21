@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DriveFleet Car Rental Platform
 
-## Getting Started
+DriveFleet is a full-stack car rental platform where users can explore available vehicles, view car details, book cars, manage bookings, and add their own car listings. The platform includes secure authentication, JWT protection, responsive UI, and full CRUD functionality.
 
-First, run the development server:
+## 🌐 Live Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 Live Site: [Live Link](https://assignment-code-two.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🔐 Secure authentication with Email/Password and Google Login
+- 🍪 JWT authentication with HTTPOnly cookies for protected routes and APIs
+- 🚗 Explore, search, and filter cars by name and category
+- 📅 Book cars with driver options and special notes
+- 🛠️ Full CRUD operations for managing car listings
+- 📱 Fully responsive design for mobile, tablet, and desktop devices
+- ⚡ Dynamic booking count update using MongoDB `$inc`
+- 🎨 Clean and recruiter-friendly modern UI design
+- 🔎 Search functionality using MongoDB `$regex`
+- 🌙 Optional dark/light theme toggle and animations
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧰 Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Frontend
+- Next.js
+- React
+- Tailwind CSS
+- HeroUI
+- Firebase Authentication
+- Framer Motion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- JWT
+- Cookie Parser
+- CORS
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Authentication Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email & Password Login/Register
+- Google Authentication
+- JWT Token Generation
+- HTTPOnly Cookie Storage
+- Protected Private Routes
+- Secure API Verification Middleware
+
+---
+
+## 🚘 Main Functionalities
+
+- Add New Car Listings
+- Update & Delete Cars
+- Book Available Cars
+- Manage Personal Bookings
+- Search & Filter Cars
+- Responsive User Dashboard
+
