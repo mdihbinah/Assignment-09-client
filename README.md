@@ -21,7 +21,6 @@ DriveFleet is a full-stack car rental platform where users can explore available
 - ⚡ Dynamic booking count update using MongoDB `$inc`
 - 🎨 Clean and recruiter-friendly modern UI design
 - 🔎 Search functionality using MongoDB `$regex`
-- 🌙 Optional dark/light theme toggle and animations
 
 ---
 
@@ -32,8 +31,7 @@ DriveFleet is a full-stack car rental platform where users can explore available
 - React
 - Tailwind CSS
 - HeroUI
-- Firebase Authentication
-- Framer Motion
+- Better-Auth Authentication
 
 ### Backend
 - Node.js
