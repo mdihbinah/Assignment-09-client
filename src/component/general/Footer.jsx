@@ -1,5 +1,7 @@
 import { CarFront } from 'lucide-react';
 import Link from 'next/link';
+import { FaFacebook, FaLinkedin } from 'react-icons/fa';
+import { FaX } from 'react-icons/fa6';
 
 
 
@@ -17,23 +19,31 @@ const Footer = () => {
                 </aside>
                 <nav>
                     <h6 className="footer-title">Services</h6>
-                    <Link href={'/'} className="link link-hover">Explore Cars</Link>
-                    <Link href={'/'} className="link link-hover">Add Car</Link>
-                    <Link href={'/'} className="link link-hover">My Bookings</Link>
+                    <Link href={'/explore-cars'} className="link link-hover">Explore Cars</Link>
+                    <Link href={'/add-car'} className="link link-hover">Add Car</Link>
+                    <Link href={'/my-bookings'} className="link link-hover">My Bookings</Link>
                 </nav>
 
                 <nav>
                     <h6 className="footer-title">Company</h6>
                     <Link href={'/'} className="link link-hover">About us</Link>
-                    <Link href={'/'} className="link link-hover">+88001403345532</Link>
-                    <Link href={'/'} className="link link-hover">drivefleet@gmail.com</Link>
+                    <Link href={'/'} className="link link-hover">Phone: +8801402245543</Link>
+                    <Link href={'/'} className="link link-hover">Email: support@drivefleet.com</Link>
                 </nav>
 
                 <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <h6 className="footer-title">Social Links</h6>
+                    <div className="flex gap-4 mt-2 text-xl">
+                        <Link href="https://x.com" target="_blank">
+                            <FaX className="hover:text-success " />
+                        </Link>
+                        <Link href="https://linkedin.com" target="_blank">
+                            <FaLinkedin className="hover:text-success" />
+                        </Link>
+                        <Link href="https://facebook.com" target="_blank">
+                            <FaFacebook className="hover:text-success" />
+                        </Link>
+                    </div>
                 </nav>
             </footer>
             <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
