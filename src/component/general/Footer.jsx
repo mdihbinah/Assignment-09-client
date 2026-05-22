@@ -18,7 +18,7 @@ const Footer = () => {
                     </p>
                 </aside>
                 <nav>
-                    <h6 className="footer-title">Services</h6>
+                    <h6 className="footer-title">Quick Links</h6>
                     <Link href={'/explore-cars'} className="link link-hover">Explore Cars</Link>
                     <Link href={'/add-car'} className="link link-hover">Add Car</Link>
                     <Link href={'/my-bookings'} className="link link-hover">My Bookings</Link>
